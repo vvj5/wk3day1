@@ -6,23 +6,17 @@ class Currency
       @amount = amount
     end
 
+    def ==(other)
+      self.currency_code == other.currency_code &&
+      self.amount == other.amount
     end
 
-class Currency1
-  attr_reader :equal_equal
-
-    def initialize :equal_equal
-      @equal_equal = equal_equal
+    def +(other)
+      currency_amt = (self.amount + other.amount)
+      Currency.new(self.currency_code, currency_amt)
     end
 
-    def ==(currency2)
-      self.equal_equal==currency2.equal_equal
-    end
-  end
 end
-
-
-
   # def +(other)
 
   #   if Currency ==(other)

@@ -8,18 +8,23 @@ class CurrencyTest < Minitest::Test
   end
 
   def test_code_and_amount
-    test = Currency.new("USD",1.66)
-    assert("USD"==test.currency_code)
-    assert(1.66==test.amount)
+    test = Currency.new("USD", 1.66)
+    assert_equal("USD", test.currency_code)
+    assert_equal(1.66, test.amount)
   end
 
   def test_currency_is_equal
-    currency1 = Currency.new("USD",1.66)
-    currency2 = Currency.new("USD",1.66)
-    assert(currency1==currency2)
+    currency1 = Currency.new("USD", 1.66)
+    currency2 = Currency.new("USD", 1.66)
+    assert_equal(currency1, currency2)
   end
 
-
+  def test_currency_can_be_added
+    currency1 = Currency.new("USD", 1.50)
+    currency2 = Currency.new("USD", 1.50)
+    sum = currency2 + currency1
+    assert_equal Currency.new("USD", 3.00), sum
+  end
 
 end
 
