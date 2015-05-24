@@ -7,8 +7,10 @@ class Currency
     end
 
     def ==(other)
-      self.currency_code == other.currency_code &&
-      self.amount == other.amount
+      if self.currency_code == other.currency_code && self.amount == other.amount
+      return true
+      else return false
+      end
     end
 
     def +(other)
@@ -16,13 +18,13 @@ class Currency
       Currency.new(self.currency_code, currency_amt)
     end
 
-end
-  # def +(other)
+    # def error_message
+    #   @error_message = error_message
+    #   puts "Cannot process request. Press y to try again."
+    # end
 
-  #   if Currency ==(other)
-  #     total_amount = other.amount.to_i += @amount.to_i
-  #     total_amount
-  #   end
+end
+
 
 
 
@@ -34,12 +36,3 @@ end
 #     else
 #       return false
 #     end
-
-
-
-
-
-# CSV.foreach("file.csv") do |row|
-#   puts row #first row would be ["animal", "count", "price"] - etc.
-# end
-
